@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Magic Dippy Egg 🥚✨</title>
+  <style>
+    /* ── Reset & base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yolk:    #FFD54F;
+      --yolk-dk: #F9A825;
+      --shell:   #FFF8E1;
+      --ink:     #3E2723;
+      --muted:   #795548;
+      --accent:  #FF7043;
+      --bg:      #FFFDE7;
+      --card-bg: #FFFFFF;
+      --radius:  1.2rem;
+      --shadow:  0 4px 24px rgba(62,39,35,.10);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    /* ── Nav ──────────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .75rem 2rem;
+      background: var(--yolk);
+      box-shadow: 0 2px 12px rgba(62,39,35,.12);
+    }
+
+    .nav-logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -.5px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--ink);
+      transition: color .2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--accent); }
+
+    /* ── Page hero ────────────────────────────────────────────── */
+    .page-hero {
+      background: linear-gradient(160deg, var(--yolk) 0%, var(--shell) 60%);
+      text-align: center;
+      padding: 5rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      width: 340px; height: 340px;
+      border-radius: 50%;
+      background: var(--yolk-dk);
+      opacity: .15;
+      top: -100px; right: -80px;
+    }
+
+    .page-hero .egg-icon {
+      font-size: 4.5rem;
+      animation: float 4s ease-in-out infinite;
+      display: block;
+      margin-bottom: 1.2rem;
+      filter: drop-shadow(0 6px 14px rgba(249,168,37,.4));
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0);   }
+      50%       { transform: translateY(-12px); }
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: .75rem;
+    }
+
+    .page-hero h1 span { color: var(--accent); }
+
+    .page-hero p {
+      max-width: 540px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+
+    /* ── Shared section helpers ───────────────────────────────── */
+    section { padding: 5rem 2rem; }
+
+    .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .5rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    /* ── Story section ────────────────────────────────────────── */
+    #story { background: var(--card-bg); }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .story-text p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .story-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Animated egg-in-cup illustration built with CSS */
+    .egg-cup {
+      position: relative;
+      width: 180px;
+      height: 220px;
+      margin: 0 auto;
+    }
+
+    .cup {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 70px;
+      background: linear-gradient(180deg, #BCAAA4 0%, #8D6E63 100%);
+      border-radius: 0 0 40px 40px;
+      box-shadow: 0 4px 16px rgba(62,39,35,.2);
+    }
+
+    .cup::before {
+      content: '';
+      position: absolute;
+      top: -12px;
+      left: -12px;
+      right: -12px;
+      height: 18px;
+      background: #A1887F;
+      border-radius: 999px;
+    }
+
+    .egg-body {
+      position: absolute;
+      bottom: 52px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 96px;
+      background: linear-gradient(160deg, #FFFDE7 30%, #FFF8E1 100%);
+      border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+      box-shadow: 0 4px 20px rgba(62,39,35,.15), inset 0 -6px 12px rgba(249,168,37,.12);
+      animation: egg-bob 3s ease-in-out infinite;
+    }
+
+    @keyframes egg-bob {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(-6px); }
+    }
+
+    .yolk {
+      position: absolute;
+      top: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 36px;
+      height: 36px;
+      background: radial-gradient(circle at 38% 38%, #FFE082, #F9A825);
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(249,168,37,.5);
+      animation: yolk-pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes yolk-pulse {
+      0%, 100% { transform: translateX(-50%) scale(1);    }
+      50%       { transform: translateX(-50%) scale(1.08); }
+    }
+
+    .sparkles {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      font-size: 1.3rem;
+      text-align: center;
+      animation: sparkle-fade 2.5s ease-in-out infinite;
+      letter-spacing: .5rem;
+    }
+
+    @keyframes sparkle-fade {
+      0%, 100% { opacity: .4; transform: translateY(0); }
+      50%       { opacity: 1;  transform: translateY(-6px); }
+    }
+
+    /* ── Values ───────────────────────────────────────────────── */
+    #values { background: var(--bg); }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .value-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1.75rem 1.5rem;
+      box-shadow: var(--shadow);
+      border-left: 5px solid var(--yolk);
+      transition: transform .25s;
+    }
+
+    .value-card:hover { transform: translateY(-4px); }
+
+    .value-card .icon { font-size: 2rem; margin-bottom: .75rem; }
+    .value-card h3    { font-weight: 700; margin-bottom: .4rem; }
+    .value-card p     { font-size: .9rem; color: var(--muted); }
+
+    /* ── Team ─────────────────────────────────────────────────── */
+    #team { background: var(--card-bg); }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .team-card {
+      text-align: center;
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 2rem 1.25rem 1.5rem;
+      box-shadow: var(--shadow);
+      transition: transform .25s;
+    }
+
+    .team-card:hover { transform: translateY(-4px); }
+
+    .avatar {
+      font-size: 3.5rem;
+      display: block;
+      margin-bottom: .75rem;
+      line-height: 1;
+    }
+
+    .team-card h3  { font-weight: 700; font-size: 1.05rem; }
+    .team-card .role {
+      font-size: .85rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin: .2rem 0 .6rem;
+    }
+    .team-card p   { font-size: .875rem; color: var(--muted); }
+
+    /* ── Timeline ─────────────────────────────────────────────── */
+    #timeline { background: var(--bg); }
+
+    .tl {
+      position: relative;
+      margin-top: 2.5rem;
+      padding-left: 2.5rem;
+    }
+
+    .tl::before {
+      content: '';
+      position: absolute;
+      left: .75rem;
+      top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--yolk) 0%, var(--accent) 100%);
+      border-radius: 999px;
+    }
+
+    .tl-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -1.85rem;
+      top: .35rem;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--yolk-dk);
+      border: 3px solid var(--card-bg);
+      box-shadow: 0 0 0 2px var(--yolk-dk);
+    }
+
+    .tl-date {
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .2rem;
+    }
+
+    .tl-item h3 { font-weight: 700; margin-bottom: .3rem; }
+    .tl-item p  { font-size: .95rem; color: var(--muted); }
+
+    /* ── CTA strip ────────────────────────────────────────────── */
+    #cta {
+      background: linear-gradient(135deg, var(--yolk-dk) 0%, var(--accent) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+
+    #cta h2 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800;
+      margin-bottom: .75rem;
+    }
+
+    #cta p {
+      color: rgba(255,255,255,.85);
+      max-width: 480px;
+      margin: 0 auto 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: .85rem 2.2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+      cursor: pointer;
+    }
+
+    .btn-white {
+      background: #fff;
+      color: var(--accent);
+      box-shadow: 0 4px 16px rgba(0,0,0,.15);
+    }
+
+    .btn-white:hover {
+      background: var(--shell);
+      transform: translateY(-2px);
+    }
+
+    /* ── Footer ───────────────────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,.65);
+      text-align: center;
+      padding: 2rem;
+      font-size: .875rem;
+    }
+
+    footer strong { color: var(--yolk); }
+
+    /* ── Responsive ───────────────────────────────────────────── */
+    @media (max-width: 700px) {
+      .story-grid { grid-template-columns: 1fr; }
+      .story-visual { display: none; }
+      .nav-links { gap: 1rem; font-size: .9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ─────────────────────────────────────────── -->
+  <nav>
+    <a class="nav-logo" href="index.html">🥚 Magic Dippy Egg</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="index.html#features">Features</a></li>
+      <li><a href="index.html#cta">Get Started</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Page Hero ──────────────────────────────────────────── -->
+  <header class="page-hero">
+    <span class="egg-icon">🥚</span>
+    <h1>The <span>Story</span> Behind<br>the Magic</h1>
+    <p>
+      Every great egg has a tale. Here's ours — hatched from curiosity,
+      incubated with care, and served warm every single day.
+    </p>
+  </header>
+
+  <!-- ── Our Story ──────────────────────────────────────────── -->
+  <section id="story">
+    <div class="section-inner">
+      <div class="story-grid">
+        <div class="story-text">
+          <p class="section-label">Our origin</p>
+          <h2 class="section-title">How it all began</h2>
+          <p>
+            Magic Dippy Egg was born from a simple breakfast-table
+            observation: the most satisfying things in life are soft on the
+            inside, perfectly timed, and best enjoyed with a little dipping.
+            We thought — why can't AI feel the same way?
+          </p>
+          <p>
+            So we cracked open the idea in early 2025, whisked together a
+            small team of engineers, designers, and one very opinionated
+            breakfast enthusiast, and set about building something warm,
+            intelligent, and genuinely delightful.
+          </p>
+          <p>
+            Today, Magic Dippy Egg is the AI companion that greets you
+            gently, answers you honestly, and never, ever overcooks.
+          </p>
+        </div>
+        <div class="story-visual">
+          <div class="egg-cup">
+            <div class="sparkles">✨ ✨</div>
+            <div class="egg-body">
+              <div class="yolk"></div>
+            </div>
+            <div class="cup"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Values ─────────────────────────────────────────────── -->
+  <section id="values">
+    <div class="section-inner">
+      <p class="section-label">What we stand for</p>
+      <h2 class="section-title">Our values</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="icon">🌡️</div>
+          <h3>Perfectly Timed</h3>
+          <p>We believe the right answer at the right moment is worth a
+             thousand answers too late — or too soon.</p>
+        </div>
+        <div class="value-card">
+          <div class="icon">💛</div>
+          <h3>Warmth First</h3>
+          <p>Every interaction should feel like a warm kitchen on a cold
+             morning. Helpful, human, and never cold.</p>
+        </div>
+        <div class="value-card">
+          <div class="icon">🔍</div>
+          <h3>Honest to the Yolk</h3>
+          <p>No hard shells of jargon or hollow whites of vague answers.
+             We go straight to the rich, runny truth.</p>
+        </div>
+        <div class="value-card">
+          <div class="icon">🌱</div>
+          <h3>Always Hatching</h3>
+          <p>We never stop growing. Every day brings a new crack in the
+             shell and something wonderful emerging.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Team ───────────────────────────────────────────────── -->
+  <section id="team">
+    <div class="section-inner">
+      <p class="section-label">The flock</p>
+      <h2 class="section-title">Meet the team</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <span class="avatar">🧑‍🍳</span>
+          <h3>Eggbert Yolkman</h3>
+          <div class="role">Chief Egg Officer</div>
+          <p>Visionary, breakfast philosopher, and the reason we have a
+             strict "no overcooked" policy.</p>
+        </div>
+        <div class="team-card">
+          <span class="avatar">👩‍💻</span>
+          <h3>Albumen Ada</h3>
+          <div class="role">Head of Engineering</div>
+          <p>Builds things that are solid on the outside and brilliantly
+             fluid on the inside. Every time.</p>
+        </div>
+        <div class="team-card">
+          <span class="avatar">🎨</span>
+          <h3>Shelley Crest</h3>
+          <div class="role">Lead Designer</div>
+          <p>Believes great design should feel as satisfying as that first
+             dip of toast into a perfect yolk.</p>
+        </div>
+        <div class="team-card">
+          <span class="avatar">🤖</span>
+          <h3>Dippy (AI)</h3>
+          <div class="role">Resident Intelligence</div>
+          <p>The magic inside the egg. Warm, curious, and always ready
+             to be dipped into.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Timeline ───────────────────────────────────────────── -->
+  <section id="timeline">
+    <div class="section-inner">
+      <p class="section-label">The journey</p>
+      <h2 class="section-title">How we got here</h2>
+      <div class="tl">
+        <div class="tl-item">
+          <div class="tl-date">Spring 2025</div>
+          <h3>The Idea Cracks</h3>
+          <p>Over a soft-boiled egg and a strong cup of tea, the concept
+             of a warm, intelligent AI companion is born.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Summer 2025</div>
+          <h3>The Nest Is Built</h3>
+          <p>The founding team assembles. Code is written. Many eggs
+             are eaten in the name of research.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Autumn 2025</div>
+          <h3>First Hatch — Private Beta</h3>
+          <p>A small flock of early users gets access. Feedback is
+             warm, enthusiastic, and occasionally runny.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Early 2026</div>
+          <h3>Public Launch</h3>
+          <p>Magic Dippy Egg opens its shell to the world. The toast
+             is ready. The yolk is perfect.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Now</div>
+          <h3>Still Hatching</h3>
+          <p>New features, new magic, and new reasons to dip in every
+             single day. The best is yet to come.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ────────────────────────────────────────────────── -->
+  <section id="cta">
+    <h2>Come join the flock</h2>
+    <p>
+      The egg is warm, the AI is ready, and there's always room for
+      one more piece of toast.
+    </p>
+    <a class="btn btn-white" href="index.html#cta">Get Started — It's Free</a>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer>
+    <p>
+      &copy; 2026 <strong>Magic Dippy Egg</strong> &mdash;
+      Crafted with warmth, wonder, and a runny yolk. 🥚✨
+    </p>
+  </footer>
+
+</body>
+</html>
