@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Magic Dippy Egg 🥚✨</title>
+  <style>
+    /* ── Reset & base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yolk:    #FFD54F;
+      --yolk-dk: #F9A825;
+      --shell:   #FFF8E1;
+      --ink:     #3E2723;
+      --muted:   #795548;
+      --accent:  #FF7043;
+      --bg:      #FFFDE7;
+      --card-bg: #FFFFFF;
+      --radius:  1.2rem;
+      --shadow:  0 4px 24px rgba(62,39,35,.10);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    /* ── Nav ──────────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .75rem 2rem;
+      background: var(--yolk);
+      box-shadow: 0 2px 12px rgba(62,39,35,.12);
+    }
+
+    .nav-logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -.5px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--ink);
+      transition: color .2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--accent); }
+
+    /* ── Page hero ────────────────────────────────────────────── */
+    .page-hero {
+      background: linear-gradient(160deg, var(--yolk) 0%, var(--shell) 60%);
+      text-align: center;
+      padding: 5rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      width: 340px; height: 340px;
+      border-radius: 50%;
+      background: var(--yolk-dk);
+      opacity: .15;
+      top: -100px; right: -80px;
+    }
+
+    .page-hero .egg-icon {
+      font-size: 4.5rem;
+      animation: float 4s ease-in-out infinite;
+      display: block;
+      margin-bottom: 1.2rem;
+      filter: drop-shadow(0 6px 14px rgba(249,168,37,.4));
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0);   }
+      50%       { transform: translateY(-12px); }
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: .75rem;
+    }
+
+    .page-hero h1 span { color: var(--accent); }
+
+    .page-hero p {
+      max-width: 540px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+
+    /* ── Contact Section ──────────────────────────────────────── */
+    section { padding: 5rem 2rem; }
+
+    .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 4rem;
+    }
+
+    .contact-info h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-info p {
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-icon {
+      font-size: 1.5rem;
+      width: 3rem;
+      height: 3rem;
+      background: var(--yolk);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .info-content h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: .2rem;
+    }
+
+    .info-content p {
+      margin-bottom: 0;
+      font-size: .95rem;
+    }
+
+    /* ── Contact Form ─────────────────────────────────────────── */
+    .contact-form {
+      background: var(--card-bg);
+      padding: 3rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: .5rem;
+      font-size: .9rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: .85rem 1rem;
+      border: 2px solid var(--shell);
+      border-radius: .8rem;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border-color .2s;
+      background: var(--bg);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--yolk);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: .85rem 2.2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(255,112,67,.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255,112,67,.45);
+    }
+
+    /* ── Footer ───────────────────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,.65);
+      text-align: center;
+      padding: 2rem;
+      font-size: .875rem;
+    }
+
+    footer strong { color: var(--yolk); }
+
+    /* ── Responsive ───────────────────────────────────────────── */
+    @media (max-width: 850px) {
+      .section-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .contact-form {
+        padding: 2rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { gap: 1rem; font-size: .9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ─────────────────────────────────────────── -->
+  <nav>
+    <a class="nav-logo" href="index.html">🥚 Magic Dippy Egg</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Page Hero ──────────────────────────────────────────── -->
+  <header class="page-hero">
+    <span class="egg-icon">🥚</span>
+    <h1>Get in <span>Touch</span></h1>
+    <p>
+      Have a question, a suggestion, or just want to say hello? We're all ears
+      (and shells). Reach out and let's start a conversation!
+    </p>
+  </header>
+
+  <!-- ── Contact Section ────────────────────────────────────────── -->
+  <section>
+    <div class="section-inner">
+      <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p>
+          Whether you're a casual dipper or a "Whole Nest" subscriber, we're
+          here to help you make the most of your Magic Dippy Egg experience.
+        </p>
+        
+        <div class="info-item">
+          <div class="info-icon">📧</div>
+          <div class="info-content">
+            <h3>Email Us</h3>
+            <p>hello@magicdippyegg.ai</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <div class="info-content">
+            <h3>Our Nest</h3>
+            <p>123 Eggshell Lane, Sunny Side Up, CA 90210</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">🐦</div>
+          <div class="info-content">
+            <h3>Follow the Flock</h3>
+            <p>@MagicDippyEgg on Twitter & Instagram</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <form action="#">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Eggbert Yolkman" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="eggbert@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject">
+              <option value="general">General Inquiry</option>
+              <option value="support">Technical Support</option>
+              <option value="billing">Billing Question</option>
+              <option value="magic">Magic Suggestion</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="How can we help you today?" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer>
+    <p>
+      &copy; 2026 <strong>Magic Dippy Egg</strong> &mdash;
+      Crafted with warmth, wonder, and a runny yolk. 🥚✨
+    </p>
+  </footer>
+
+</body>
+</html>
