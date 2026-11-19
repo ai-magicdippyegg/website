@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore the features inside Magic Dippy Egg, the warm and whimsical AI companion." />
+  <title>Features — Magic Dippy Egg 🥚✨</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --yolk:#FFD54F; --yolk-dark:#F9A825; --shell:#FFF8E1; --ink:#3E2723; --muted:#795548; --accent:#FF7043; --bg:#FFFDE7; --card:#FFFFFF; --shadow:0 8px 28px rgba(62,39,35,.10); --radius:1.2rem; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--bg); color:var(--ink); line-height:1.65; }
+    nav { position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between; gap:1.5rem; padding:.8rem 2rem; background:var(--yolk); box-shadow:0 2px 12px rgba(62,39,35,.12); }
+    .logo { color:var(--ink); text-decoration:none; font-size:1.35rem; font-weight:850; white-space:nowrap; }
+    .nav-links { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:.8rem 1.25rem; list-style:none; }
+    .nav-links a { color:var(--ink); text-decoration:none; font-weight:650; transition:color .2s; }
+    .nav-links a:hover,.nav-links a.active { color:var(--accent); }
+    .hero { position:relative; overflow:hidden; text-align:center; padding:5.5rem 1.5rem 4.5rem; background:linear-gradient(155deg,var(--yolk),var(--shell) 68%); }
+    .hero::before,.hero::after { content:''; position:absolute; border-radius:50%; background:var(--yolk-dark); opacity:.16; }
+    .hero::before { width:360px; height:360px; top:-145px; right:-95px; }
+    .hero::after { width:220px; height:220px; bottom:-115px; left:-60px; }
+    .egg { position:relative; z-index:1; display:inline-block; font-size:4.5rem; margin-bottom:1rem; animation:float 4s ease-in-out infinite; filter:drop-shadow(0 7px 14px rgba(249,168,37,.35)); }
+    @keyframes float { 0%,100%{transform:translateY(0) rotate(-3deg)} 50%{transform:translateY(-12px) rotate(3deg)} }
+    h1 { position:relative; z-index:1; font-size:clamp(2.3rem,6vw,4rem); line-height:1.05; margin-bottom:1rem; }
+    h1 span,.eyebrow { color:var(--accent); }
+    .hero p { position:relative; z-index:1; max-width:600px; margin:0 auto; color:var(--muted); font-size:1.12rem; }
+    section { padding:5rem 1.5rem; }
+    .inner { max-width:1080px; margin:0 auto; }
+    .section-heading { max-width:650px; margin-bottom:2.5rem; }
+    .eyebrow { font-size:.8rem; font-weight:800; letter-spacing:.13em; text-transform:uppercase; margin-bottom:.45rem; }
+    h2 { font-size:clamp(1.8rem,4vw,2.5rem); line-height:1.15; margin-bottom:.75rem; }
+    .section-heading p { color:var(--muted); }
+    .feature-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.4rem; }
+    .feature-card { padding:2rem 1.7rem; background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); border-top:5px solid var(--yolk); transition:transform .2s,box-shadow .2s; }
+    .feature-card:hover { transform:translateY(-5px); box-shadow:0 13px 34px rgba(62,39,35,.15); }
+    .icon { font-size:2.5rem; margin-bottom:1rem; }
+    .feature-card h3 { font-size:1.15rem; margin-bottom:.5rem; }
+    .feature-card p { color:var(--muted); font-size:.95rem; }
+    .spotlight { background:var(--card); }
+    .spotlight-grid { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:3rem; }
+    .spotlight-copy p { color:var(--muted); margin-bottom:1rem; }
+    .demo { display:grid; place-items:center; min-height:260px; border-radius:var(--radius); background:radial-gradient(circle at 50% 40%,#FFE082 0 22%,transparent 23%),linear-gradient(145deg,var(--shell),#FFE0B2); box-shadow:var(--shadow); font-size:6rem; animation:glow 3s ease-in-out infinite; }
+    @keyframes glow { 0%,100%{filter:saturate(1)} 50%{filter:saturate(1.25) brightness(1.03)} }
+    .pill-row { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.4rem; }
+    .pill { padding:.4rem .8rem; border-radius:999px; background:var(--shell); color:var(--muted); font-size:.85rem; font-weight:700; }
+    .cta { text-align:center; color:#fff; background:linear-gradient(135deg,var(--yolk-dark),var(--accent)); }
+    .cta p { max-width:540px; margin:0 auto 1.6rem; color:rgba(255,255,255,.88); }
+    .btn { display:inline-block; padding:.75rem 1.6rem; border-radius:999px; background:#fff; color:var(--accent); text-decoration:none; font-weight:750; box-shadow:0 4px 14px rgba(0,0,0,.12); transition:transform .2s; }
+    .btn:hover { transform:translateY(-2px); }
+    footer { padding:2rem; text-align:center; color:rgba(255,255,255,.68); background:var(--ink); font-size:.9rem; }
+    footer strong { color:var(--yolk); }
+    @media (max-width:720px) { nav{align-items:flex-start;flex-direction:column;padding:.9rem 1.2rem}.nav-links{justify-content:flex-start;gap:.55rem .9rem;font-size:.9rem}.spotlight-grid{grid-template-columns:1fr}.demo{min-height:190px} }
+  </style>
+</head>
+<body>
+  <nav aria-label="Primary navigation">
+    <a class="logo" href="index.html">🥚 Magic Dippy Egg</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="features.html" class="active">Features</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="egg" aria-hidden="true">🥚</div>
+    <h1>More magic in <span>every dip</span></h1>
+    <p>Meet the thoughtful tools that make Magic Dippy Egg useful, delightful, and ready whenever inspiration strikes.</p>
+  </header>
+
+  <main>
+    <section>
+      <div class="inner">
+        <div class="section-heading"><div class="eyebrow">What's inside</div><h2>Everything in the shell</h2><p>Each feature is incubated to make your everyday AI experience smoother, warmer, and a little more surprising.</p></div>
+        <div class="feature-grid">
+          <article class="feature-card"><div class="icon">🤖</div><h3>Yolk-warm AI</h3><p>Get helpful answers, creative ideas, and clear explanations from an assistant designed to feel approachable.</p></article>
+          <article class="feature-card"><div class="icon">✨</div><h3>Magic Moments</h3><p>Discover small, unexpected touches that make routine interactions feel more human and memorable.</p></article>
+          <article class="feature-card"><div class="icon">🍞</div><h3>Toast-ready workflow</h3><p>Move from question to useful result quickly, with focused prompts and responses that fit your day.</p></article>
+          <article class="feature-card"><div class="icon">🔒</div><h3>Shell-tight privacy</h3><p>Your conversations deserve care. We build with sensible data practices and security in mind.</p></article>
+          <article class="feature-card"><div class="icon">⚡</div><h3>Fast, runny results</h3><p>Spend less time waiting and more time doing with an experience tuned for quick, fluid interaction.</p></article>
+          <article class="feature-card"><div class="icon">🌍</div><h3>Ready wherever you are</h3><p>Enjoy a responsive experience across phones, tablets, and desktop screens without missing a beat.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="spotlight">
+      <div class="inner spotlight-grid">
+        <div class="spotlight-copy"><div class="eyebrow">A closer look</div><h2>Built for curious minds</h2><p>Whether you need a first draft, a fresh perspective, or a tiny spark to get unstuck, Magic Dippy Egg gives you a gentle place to begin.</p><p>Start with a simple question. Refine as you go. Let the yolk do the thinking while you stay in control.</p><div class="pill-row"><span class="pill">Ideas</span><span class="pill">Writing</span><span class="pill">Planning</span><span class="pill">Learning</span></div></div>
+        <div class="demo" aria-label="Decorative animated egg illustration">🥚</div>
+      </div>
+    </section>
+
+    <section class="cta"><div class="inner"><h2>Ready to see what's inside?</h2><p>Explore the plans, read the latest stories, or get in touch with the flock.</p><a class="btn" href="pricing.html">View plans</a></div></section>
+  </main>
+
+  <footer><p>&copy; 2026 <strong>Magic Dippy Egg</strong> &mdash; Crafted with warmth, wonder, and a runny yolk. 🥚✨</p></footer>
+</body>
+</html>
