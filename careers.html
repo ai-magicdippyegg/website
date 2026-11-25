@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Join the Magic Dippy Egg flock and help hatch the future of warm, delightful AI." />
+  <title>Careers — Magic Dippy Egg 🥚✨</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --yolk: #FFD54F;
+      --yolk-dark: #F9A825;
+      --shell: #FFF8E1;
+      --ink: #3E2723;
+      --muted: #795548;
+      --accent: #FF7043;
+      --bg: #FFFDE7;
+      --card: #FFFFFF;
+      --shadow: 0 8px 28px rgba(62,39,35,.10);
+      --radius: 1.25rem;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; }
+    nav { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: .8rem 2rem; background: var(--yolk); box-shadow: 0 2px 12px rgba(62,39,35,.12); }
+    .logo { color: var(--ink); text-decoration: none; font-size: 1.35rem; font-weight: 850; white-space: nowrap; }
+    .nav-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .8rem 1.25rem; list-style: none; }
+    .nav-links a { color: var(--ink); text-decoration: none; font-weight: 650; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+    .hero { position: relative; overflow: hidden; text-align: center; padding: 5.5rem 1.5rem 4.5rem; background: linear-gradient(155deg, var(--yolk) 0%, var(--shell) 68%); }
+    .hero::before, .hero::after { content: ''; position: absolute; border-radius: 50%; background: var(--yolk-dark); opacity: .16; }
+    .hero::before { width: 360px; height: 360px; top: -150px; right: -90px; }
+    .hero::after { width: 210px; height: 210px; bottom: -100px; left: -50px; }
+    .egg { position: relative; z-index: 1; display: inline-block; font-size: 4.5rem; margin-bottom: 1rem; animation: float 4s ease-in-out infinite; filter: drop-shadow(0 7px 14px rgba(249,168,37,.35)); }
+    @keyframes float { 0%,100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-12px) rotate(3deg); } }
+    h1 { position: relative; z-index: 1; font-size: clamp(2.3rem, 6vw, 4rem); line-height: 1.05; margin-bottom: 1rem; }
+    h1 span, .eyebrow { color: var(--accent); }
+    .hero p { position: relative; z-index: 1; max-width: 590px; margin: 0 auto; color: var(--muted); font-size: 1.12rem; }
+    section { padding: 5rem 1.5rem; }
+    .inner { max-width: 1050px; margin: 0 auto; }
+    .section-heading { max-width: 660px; margin-bottom: 2.5rem; }
+    .eyebrow { font-size: .8rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; margin-bottom: .45rem; }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1.15; margin-bottom: .75rem; }
+    .section-heading p { color: var(--muted); }
+    .jobs { display: grid; gap: 1rem; }
+    .job { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.5rem 1.7rem; background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); border-left: 5px solid var(--yolk); transition: transform .2s, box-shadow .2s; }
+    .job:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(62,39,35,.14); }
+    .job h3 { font-size: 1.2rem; margin-bottom: .25rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: .35rem 1rem; color: var(--muted); font-size: .9rem; }
+    .btn { display: inline-block; flex-shrink: 0; padding: .72rem 1.45rem; border-radius: 999px; background: var(--accent); color: #fff; text-decoration: none; font-weight: 750; box-shadow: 0 4px 14px rgba(255,112,67,.28); transition: transform .2s, box-shadow .2s; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 7px 20px rgba(255,112,67,.38); }
+    .culture { background: var(--card); }
+    .perks { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.3rem; }
+    .perk { padding: 1.5rem; border-radius: var(--radius); background: var(--bg); border-top: 4px solid var(--yolk); }
+    .perk-icon { font-size: 2rem; margin-bottom: .6rem; }
+    .perk h3 { font-size: 1.05rem; margin-bottom: .35rem; }
+    .perk p { color: var(--muted); font-size: .92rem; }
+    .cta { text-align: center; color: #fff; background: linear-gradient(135deg, var(--yolk-dark), var(--accent)); }
+    .cta p { max-width: 520px; margin: 0 auto 1.6rem; color: rgba(255,255,255,.88); }
+    .cta .btn { background: #fff; color: var(--accent); }
+    footer { padding: 2rem; text-align: center; color: rgba(255,255,255,.68); background: var(--ink); font-size: .9rem; }
+    footer strong { color: var(--yolk); }
+    @media (max-width: 700px) { nav { align-items: flex-start; flex-direction: column; padding: .9rem 1.2rem; } .nav-links { justify-content: flex-start; gap: .55rem .9rem; font-size: .9rem; } .job { align-items: flex-start; flex-direction: column; } }
+  </style>
+</head>
+<body>
+  <nav aria-label="Primary navigation">
+    <a class="logo" href="index.html">🥚 Magic Dippy Egg</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="careers.html" class="active">Careers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="egg" aria-hidden="true">🥚</div>
+    <h1>Join the <span>Flock</span></h1>
+    <p>Help us hatch a kinder, warmer future for AI. Bring your curiosity, craft, and appetite for delightful ideas.</p>
+  </header>
+
+  <main>
+    <section>
+      <div class="inner">
+        <div class="section-heading">
+          <div class="eyebrow">Open shells</div>
+          <h2>Find your next great dip</h2>
+          <p>We are a small, thoughtful team building technology that feels useful, human, and a little magical.</p>
+        </div>
+        <div class="jobs">
+          <article class="job"><div><h3>Senior Egg Engineer</h3><div class="meta"><span>📍 Remote</span><span>⏰ Full-time</span><span>🍳 Engineering</span></div></div><a class="btn" href="contact.html">Apply now</a></article>
+          <article class="job"><div><h3>Yolk Product Designer</h3><div class="meta"><span>📍 Remote-first</span><span>⏰ Full-time</span><span>🎨 Design</span></div></div><a class="btn" href="contact.html">Apply now</a></article>
+          <article class="job"><div><h3>Community & Growth Lead</h3><div class="meta"><span>📍 Anywhere</span><span>⏰ Full-time</span><span>📈 Growth</span></div></div><a class="btn" href="contact.html">Apply now</a></article>
+          <article class="job"><div><h3>Customer Success Hatchling</h3><div class="meta"><span>📍 Remote</span><span>⏰ Internship</span><span>🤝 Support</span></div></div><a class="btn" href="contact.html">Apply now</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="culture">
+      <div class="inner">
+        <div class="section-heading"><div class="eyebrow">Life inside the shell</div><h2>Small team, big yolk energy</h2><p>We care about excellent work, generous collaboration, and leaving room for the unexpected.</p></div>
+        <div class="perks">
+          <article class="perk"><div class="perk-icon">🌍</div><h3>Remote by default</h3><p>Do your best work wherever you feel most focused and inspired.</p></article>
+          <article class="perk"><div class="perk-icon">🍞</div><h3>Breakfast budget</h3><p>A monthly toast-and-egg stipend keeps the creative juices runny.</p></article>
+          <article class="perk"><div class="perk-icon">✨</div><h3>Magic Fridays</h3><p>Make space each week to explore an idea that sparks your curiosity.</p></article>
+          <article class="perk"><div class="perk-icon">🌱</div><h3>Room to grow</h3><p>Clear ownership, kind feedback, and support for your next chapter.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta"><div class="inner"><h2>Don't see your perfect role?</h2><p>We are always happy to meet thoughtful people. Send us a note and tell us what you would love to hatch.</p><a class="btn" href="contact.html">Say hello</a></div></section>
+  </main>
+
+  <footer><p>&copy; 2026 <strong>Magic Dippy Egg</strong> &mdash; Crafted with warmth, wonder, and a runny yolk. 🥚✨</p></footer>
+</body>
+</html>
+
